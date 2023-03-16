@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-/* This funtction prints a string */
+/**
+ * main - prints a string formed from 52 charchers
+ * Return: Return 0
+ */
 int main(void)
 {
 	char ch[52];
