@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	char *my_string = "and that piece of art is useful\"";
+	char *my_string = "and that piece of art is useful\" ";
 	char *ant = "- Dora Korpar, 2015-10-19\n";
 
 	write(1, my_string, strlen(my_string));
