@@ -1,33 +1,21 @@
 #include <stdio.h>
 
 /**
- * main - print two united digits until 89
+ * main - print all possible different combinations of two digits
  * Return: Return (0)
  */
-int main(void)
+int main() 
 {
-	int num_1 = 48, num_2 = 49;
+    int num_1, num_2;
 
-	while (!(num_1 == 57 && num_2 == 48))
-	{
-		if (!(num_1 == num_2))
-		{
-			putchar(num_1);
-			putchar(num_2);
-			num_2++;
-		}
-		if (!(num_1 == 57 && num_2 == 48))
-		{
-			putchar(',');
-			putchar(' ');
-		}
-		if (num_2 == 57)
-		{
-			num_1++;
-			num_2 = 1;
-		}
-
-	}
-	putchar('\n');
-	return (0);
-}
+    for(num_1 = 48; num_1 <= 56; num_1++) {
+        for(num_2 = num_1 + 1; num_2 <= 57; num_2++) {
+            putchar(num_1);
+            putchar(num_2);
+            if(num_1 != 56 || num_2 != 57) {
+                putchar(',');
+                putchar(' ');
+            }
+        }
+    }
+    return 0;
