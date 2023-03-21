@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include "main.h"
+
+/**
+ * times_table - prints 9 times table
+ * Return: Return nothing
+ */
+void times_table(void)
+{
+	int times = 0, i = 0;
+
+	while (times != 10)
+	{
+		_putchar(0 + '0');
+		_putchar(',');
+		_putchar(' ');
+		_putchar(' ');
+		for (i = 0; i <= 9; i++)
+		{
+			_putchar((i * times) + '0');
+			_putchar(',');
+			_putchar(' ');
+			_putchar(' ');
+		}
+		_putchar('\n');
+		times += 1;
+	}
+}
+
