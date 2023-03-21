@@ -9,15 +9,13 @@ void jack_bauer(void)
 {
 	int first = 0, second = 0, third = 0, forth = 0;
 
-	do {
+	while (first == 2 && second == 3 && third == 5 && forth == 9)
+	{
 		_putchar(first);
 		_putchar(second);
 		_putchar(':');
 		_putchar(third);
 		_putchar(forth);
-	}
-	while (first == 2 && second == 3 && third == 5 && forth == 9)
-	{
 		if (forth < 9)
 		{
 			forth += 1;
