@@ -3,9 +3,7 @@
 
 #include "main.h"
 
-/**
- * print_alphabet - prints the alphabet
- * Return: Return nothing
- */
 void print_alphabet(void);
+void print_alphabet_x10(void);
+
 #endif
