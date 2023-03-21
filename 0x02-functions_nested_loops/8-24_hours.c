@@ -11,11 +11,11 @@ void jack_bauer(void)
 
 	while (first != 2 && second != 3 && third != 5 && forth != 9)
 	{
-		_putchar(first);
-		_putchar(second);
-		_putchar(':');
-		_putchar(third);
-		_putchar(forth);
+		_putchar(first + '0');
+		_putchar(second + '0');
+		_putchar(':' + '0');
+		_putchar(third + '0');
+		_putchar(forth + '0');
 		if (forth < 9)
 		{
 			forth += 1;
