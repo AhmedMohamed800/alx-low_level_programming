@@ -30,7 +30,7 @@ void jack_bauer(void)
 			forth = 0;
 			second += 1;
 		}
-		else if (second == 9 && thinrd == 6 && forth == 0)
+		else if (second == 9 && third == 6 && forth == 0)
 		{
 			first += 1;
 			second = 0;
