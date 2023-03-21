@@ -5,7 +5,7 @@
  * print_alphabet_x10 - print the alphabet in lowercase
  * Return: Return 0
  */
-void pr:int_alphabet_x10 (void)
+void print_alphabet_x10 (void)
 {
 	int nummy, n = 0;
 	
