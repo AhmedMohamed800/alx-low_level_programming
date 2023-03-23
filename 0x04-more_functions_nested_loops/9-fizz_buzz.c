@@ -4,7 +4,7 @@
 * main - prints nums from 0 to 100 (3 - 5)
 * Return: 0
 */
-void main(void)
+int main(void)
 {
 	int i;
 
@@ -31,5 +31,7 @@ void main(void)
 			putchar(' ');
 		}
 	}
+	putchar('\n');
+	return (0);
 }
 
