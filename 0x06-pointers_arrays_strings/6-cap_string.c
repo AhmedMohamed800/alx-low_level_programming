@@ -16,16 +16,16 @@ char *cap_string(char *str)
 		if (str[i] >= 'a' && str[i] <= 'z')
 		{
 			str[i] = str[i] - con;
-			con = 0;
 		}
-			for (j = 0; arr[j] != '\0'; j++)
+		con = 0;
+		for (j = 0; arr[j] != '\0'; j++)
+		{
+			if (arr[j] == str[i])
 			{
-				if (arr[j] == str[i])
-				{
-					con = 32;
-					break;
-				}
+				con = 32;
+				break;
 			}
 		}
+	}
 	return (str);
 }
