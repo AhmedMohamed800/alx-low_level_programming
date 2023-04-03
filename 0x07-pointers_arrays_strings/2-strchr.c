@@ -12,7 +12,7 @@ char *_strchr(char *s, char c)
 
 	while (*s)
 	{
-		if (s[i] == c)
+		if (s == c)
 		{
 			return (s);
 		}
