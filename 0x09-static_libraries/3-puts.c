@@ -1,15 +1,17 @@
-#include <stdio.h>
-#include <string.h>
+#include "main.h"
 
 /**
- * main - prints a string formed from 52 charchers
- * Return: Return 0
+ * _puts - check if a number is greater than 0
+ * @s: Return 0
  */
-int main(void)
+void _puts(char *s)
 {
-	char ch[52];
+	int i;
 
-	strcpy(ch, "\"Programming is like building a multilingual puzzle");
-	puts(ch);
-	return (0);
+	for (i = 0; *s != '\0'; i++)
+	{
+		_putchar(*s);
+		s++;
+	}
+	_putchar('\n');
 }
