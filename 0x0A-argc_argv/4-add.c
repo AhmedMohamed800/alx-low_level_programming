@@ -12,36 +12,29 @@
 */
 int main(int argc, char *argv[])
 {
-	int i, nummy = 1;
+	int i, j, length;
 	long result = 0;
-	size_t j;
 
 	if (argc == 1)
 	{
 		printf("0\n");
-		return (1);
 	}
-
-	for (i = 1; i < argc; i++)
+	else
 	{
-		for (j = 0; j < strlen(argv[i]); j++)
+		for (i = 1; i < argc; i++)
 		{
-			if (!isdigit(argv[i][j]))
+			length = strlen(argv[i]);
+			for (j = 0; j < length; j++)
 			{
-				nummy = 0;
-				break;
+				if (isdigit(*(argv[i] + j)) == 0)
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
-		}
-		if (nummy)
-		{
 			result += atoi(argv[i]);
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		printf("%ld\n", result);
 	}
-	printf("%ld\n", result);
 	return (0);
 }
