@@ -12,15 +12,15 @@
 */
 int main(int argc, char *argv[])
 {
-	int i, j, length;
-	long result = 0;
+	int i, j, length, result;
 
-	if (argc == 1)
+	if (argc < 2)
 	{
 		printf("0\n");
 	}
 	else
 	{
+		result = 0;
 		for (i = 1; i < argc; i++)
 		{
 			length = strlen(argv[i]);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 			}
 			result += atoi(argv[i]);
 		}
-		printf("%ld\n", result);
+		printf("%d\n", result);
 	}
 	return (0);
 }
