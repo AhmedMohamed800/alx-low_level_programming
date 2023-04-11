@@ -8,6 +8,10 @@
 */
 char *str_concat(char *s1, char *s2)
 {
+
+	int s1_len = 0, s2_len = 0, i;
+	char *result;
+
 	if (s1 == NULL)
 	{
 		s1 = "";
@@ -16,10 +20,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-
-	int s1_len = 0, s2_len = 0, i = 0;
-	char *result;
-
 	while (s1[s1_len])
 	{
 		s1_len++;
