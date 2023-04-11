@@ -11,13 +11,13 @@ char *_strdup(char *str)
 	char *stringy;
 	unsigned int size, i;
 
-	if (str == NULL)
+	for (size = 0; str[size] != '\0'; size++)
+		;
+	stringy = malloc(sizeof(char) * size - 1);
+	if (str == NULL || stringy == NULL)
 	{
 		return (NULL);
 	}
-	for (size = 0; str[size] != '\0'; size++)
-		;
-	stringy = malloc(sizeof(char) * size);
 	for (i = 0; i < size; i++)
 	{
 		stringy[i] = str[i];
