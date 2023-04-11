@@ -8,44 +8,39 @@
 */
 char *str_concat(char *s1, char *s2)
 {
-	char *concate;
-	unsigned int size_1, size_2, i, j = 0, sum;
-
 	if (s1 == NULL)
-		s1 = "";
-	else if (s2 == NULL)
-		s2 = "";
-	for (size_1 = 0; s1[size_1] != '\0'; size_1++)
-		;
-	for (size_2 = 0; s2[size_2] != '\0'; size_1++)
-		;
-	sum = size_1 + size_2;
-	concate = malloc(sizeof(char) * (sum + 1));
-	if (concate == NULL)
-		return (NULL);
-	for (i = 0; i < sum; i++)
 	{
-		if (size_1 > size_2)
-		{
-			if (i < size_1)
-				concate[i] = s1[i];
-			else
-			{
-				concate[i] = s2[j];
-				j++;
-			}
-		}
-		else
-		{
-			if (i < size_2)
-				concate[i] = s2[i];
-			else
-			{
-				concate[i] = s1[j];
-				j++;
-			}
-		}
+		s1 = "";
 	}
-	concate[sum] = '\0';
-	return (concate);
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+
+	int s1_len = 0, s2_len = 0, i = 0;
+	char *result;
+
+	while (s1[s1_len])
+	{
+		s1_len++;
+	}
+	while (s2[s2_len])
+	{
+		s2_len++;
+	}
+	result = malloc(s1_len + s2_len + 1);
+	if (result == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < s1_len; i++)
+	{
+		result[i] = s1[i];
+	}
+	for (i = 0; i < s2_len; i++)
+	{
+		result[s1_len + i] = s2[i];
+	}
+	result[s1_len + s2_len] = '\0';
+	return (result);
 }
