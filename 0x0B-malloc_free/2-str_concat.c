@@ -22,9 +22,7 @@ char *str_concat(char *s1, char *s2)
 	sum = size_1 + size_2;
 	concate = malloc(sizeof(char) * (sum + 1));
 	if (concate == NULL)
-	{
 		return (NULL);
-	}
 	for (i = 0; i < sum; i++)
 	{
 		if (size_1 > size_2)
@@ -32,16 +30,20 @@ char *str_concat(char *s1, char *s2)
 			if (i < size_1)
 				concate[i] = s1[i];
 			else
+			{
 				concate[i] = s2[j];
 				j++;
+			}
 		}
 		else
 		{
 			if (i < size_2)
 				concate[i] = s2[i];
 			else
+			{
 				concate[i] = s1[j];
 				j++;
+			}
 		}
 	}
 	concate[sum] = '\0';
