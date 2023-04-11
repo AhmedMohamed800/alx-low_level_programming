@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
-* create_array - creates an array of chars, and initializes it 
+* create_array - creates an array of chars, and initializes it
 * with a specific char.
 * @size: the size of the array
 * @c: the start of the array
-* Retunr: string
+* Return: array of string
 */
 char *create_array(unsigned int size, char c)
 {
 	char *arr;
-	int i;
+	unsigned int i;
 
 	if (size == 0)
 	{
