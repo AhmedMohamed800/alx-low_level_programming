@@ -28,6 +28,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	sum = n + len1;
 	new_string = malloc(sum + 1);
+	if (new_string == NULL)
+	{
+		return (NULL);
+	}
 	for (i = 0; i < sum; i++)
 	{
 		if (i < len1)
