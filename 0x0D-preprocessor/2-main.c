@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 /**
-* print_file -  prints the name of the file
+* main -  prints the name of the file
 */
-void print_file(void)
+int main(void)
 {
 	printf("%s\n", __FILE__);
+	return (0);
 }
