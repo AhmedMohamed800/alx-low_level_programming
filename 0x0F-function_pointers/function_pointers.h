@@ -1,5 +1,5 @@
-#ifndef __function_pointers__
-#define __function_pointers__
+#ifndef _FUNCTION_POINTERS_
+#define _FUNCTION_POINTERS_
 
 int _putchar(char c);
 void print_name(char *name, void (*f)(char *));
