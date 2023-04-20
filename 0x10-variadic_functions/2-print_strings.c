@@ -12,6 +12,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *sep, *x;
 	const char *temp, *x;
 
+	va_list(args);
 	if (separator == NULL || *separator == 0)
 	{
 		sep = "";
@@ -20,7 +21,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		sep = (char *) separator;
 	}
-	va_list(args);
 	va_start(args, n);
 	for (i = 0; i < n; i++)
 	{
