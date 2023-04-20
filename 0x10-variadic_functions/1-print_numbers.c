@@ -3,14 +3,15 @@
 /**
 * print_numbers - prints numbers
 * @separator: string to be printed between numbers
+* @n: number of arguments
 * Return: nothing
 */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	char *separ;
 	unsigned int i;
-	va_list (args);
 
+	va_list(args);
 	if (separator == NULL || *separator == 0)
 	{
 		separ = "";
