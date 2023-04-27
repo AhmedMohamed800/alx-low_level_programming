@@ -3,17 +3,21 @@
 /**
 * free_list - frees a list_t list.
 * @head: pointer to head
-*	 Return: nothing
+* Return: nothing
 */
 void free_list(list_t *head)
 {
-	list_t *p = head, *next;
-
-	while (p->next != NULL)
+	list_t *p, *next;
+	
+	if (head == NULL)
+		return;
+	next = head;
+	while (next != NULL)
 	{
-		next = p->next;
-		free(p);
 		p = next;
+		next = next->next;
+		free(p);
+		free(p->str);
 	}
-	*head = NULL;
+	head = NULL;
 }
