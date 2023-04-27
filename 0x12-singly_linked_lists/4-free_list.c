@@ -8,8 +8,9 @@
 void free_list(list_t *head)
 {
 	list_t *p;
-	
-	if (!head) return;
+
+	if (!head)
+		return;
 	while (head)
 	{
 		p = head->next;
