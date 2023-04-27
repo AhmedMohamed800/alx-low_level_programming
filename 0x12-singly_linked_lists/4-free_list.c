@@ -19,5 +19,4 @@ void free_list(list_t *head)
 		free(p->str);
 		free(p);
 	}
-	head = NULL;
 }
