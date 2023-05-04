@@ -5,12 +5,12 @@
 * @n: number
 * @index: the index
 * Return: 0 or 1
-*/ 
+*/
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, y = 32;
 
-	if (index < i)
+	if (index < i || index > y)
 		return (-1);
 	if (n & (1 << index))
 	{
