@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 */
 int copy_content(const char *file_from, const char *file_to)
 {
-	int first_file, read_first, second_file;
+	int first_file, read_first, second_file, writ;
 	char buffer[1024];
 
 	first_file = open(file_from, O_RDONLY);
@@ -43,18 +43,26 @@ int copy_content(const char *file_from, const char *file_to)
 		exit(99);
 	}
 	read_first = read(first_file, buffer, 1024);
-	write(second_file, buffer, read_first);
+	if (read_first == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+	writ = write(second_file, buffer, read_first);
+	if (writ < read_first)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", file_to);
+		exit(99);
+	}
 	if (close(first_file) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", first_file);
 		exit(100);
 	}
-	close(first_file);
 	if (close(second_file) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", second_file);
 		exit(100);
 	}
-	close(second_file);
 	return (1);
 }
