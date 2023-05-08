@@ -1,7 +1,5 @@
 #include "main.h"
 
-int copy_content(const char *file_from, const char *file_to);
-
 /**
 * main - copy the content of a file to another file
 * @argc: argument count
@@ -10,59 +8,32 @@ int copy_content(const char *file_from, const char *file_to);
 */
 int main(int argc, char **argv)
 {
-	if (argc != 3)
-	{
-		dprintf(2, "Usage: cp file_from file_to \n");
-		exit(97);
-	}
-	copy_content(argv[1], argv[2]);
-	return (0);
-}
-
-/**
-* copy_content - copies the content of a file to another file.
-* @file_from: the file that its content will be copied.
-* @file_to: the file to which the content will be copied.
-* Return: 1 in sucess
-*/
-int copy_content(const char *file_from, const char *file_to)
-{
-	int first_file, read_first, second_file, writ;
+	int first_file, second_file;
+	int read_first = 1024, write_second = 0;
 	char buffer[1024];
 
-	first_file = open(file_from, O_RDONLY);
+	if (argc != 3)
+		dprintf(2, "Usage: cp file_from file_to \n"), exit(97);
+	first_file = open(argv[1], O_RDONLY);
 	if (first_file == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	second_file = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	second_file = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (second_file == -1)
+		dprintf(2, "Error: Can't read from file %s\n", argv[2]), exit(99);
+	while (read_first == 1024)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_to);
-		exit(99);
-	}
-	read_first = read(first_file, buffer, 1024);
-	if (read_first == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	writ = write(second_file, buffer, read_first);
-	if (writ < read_first)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", file_to);
-		exit(99);
+		read_first = read(first_file, buffer, 1024);
+		if (read_first == -1)
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(99);
+		write_second = write(second_file, buffer, read_first);
+		if (write_second < read_first)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 	if (close(first_file) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", first_file);
-		exit(100);
-	}
+		dprintf(2, "Error: Can't close fd %d\n", first_file), exit(100);
 	if (close(second_file) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", second_file);
-		exit(100);
-	}
-	return (1);
+		dprintf(2, "Error: Can't close fd %d\n", second_file), exit(100);
+	close(first_file);
+	close(second_file);
+	return (0);
 }
