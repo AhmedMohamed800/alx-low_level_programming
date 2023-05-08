@@ -32,13 +32,13 @@ int main(int argc, char **argv)
 		if (read_first == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			close(first_file), close(second_file), exit(99);
+			close(first_file), exit(98);
 		}
 		write_second = write(second_file, buffer, read_first);
 		if (write_second < read_first)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(second_file), close(first_file), exit(99);
+			close(second_file), exit(99);
 		}
 	}
 	if (close(first_file) == -1)
