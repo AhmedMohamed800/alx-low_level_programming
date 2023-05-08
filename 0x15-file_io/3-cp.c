@@ -8,7 +8,7 @@
 */
 int main(int argc, char **argv)
 {
-	int first_file, second_file;
+	int first_file, second_file, close_file;
 	int read_first = 1024, write_second = 0;
 	char buffer[1024];
 
@@ -23,8 +23,8 @@ int main(int argc, char **argv)
 	second_file = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (second_file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", argv[2]);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		exit(97);
 	}
 	while (read_first == 1024)
 	{
@@ -32,18 +32,17 @@ int main(int argc, char **argv)
 		if (read_first == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			close(first_file), exit(98);
+			exit(98);
 		}
 		write_second = write(second_file, buffer, read_first);
-		if (write_second < read_first)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(second_file), close(first_file), exit(99);
-		}
+		if (write_second == -1)
+			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", argv[2]), exit(99);
 	}
-	if (close(first_file) == -1)
+	close_file = close(first_file);
+	if (close_file == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", first_file), exit(100);
-	if (close(second_file) == -1)
+	close_file = close(second_file);
+	if (close_file == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", second_file), exit(100);
 	return (0);
 }
