@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	second_file = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT | O_APPEND, 0664);
+	second_file = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (second_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
