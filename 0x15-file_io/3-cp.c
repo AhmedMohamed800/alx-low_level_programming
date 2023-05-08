@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	second_file = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (second_file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	while (read_first == 1024)
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		write_second = write(second_file, buffer, read_first);
 		if (write_second == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close(second_file), close(first_file), exit(99);
 		}
 	}
