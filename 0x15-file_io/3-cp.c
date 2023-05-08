@@ -32,10 +32,10 @@ int main(int argc, char **argv)
 		if (read_first == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
+			  close(first_file), exit(98);
 		}
 		write_second = write(second_file, buffer, read_first);
-		if (write_second == -1)
+		if (write_second < read_first)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", argv[2]);
 			close(second_file), exit(99);
