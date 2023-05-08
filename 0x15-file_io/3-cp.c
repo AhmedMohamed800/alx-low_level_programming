@@ -16,8 +16,9 @@ int main(int argc, char **argv)
 		dprintf(2, "Usage: cp file_from file_to \n"), exit(97);
 	first_file = open(argv[1], O_RDONLY);
 	if (first_file == -1)
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]), close(first_file), exit(98);
-	second_file = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	second_file = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
+			| S_IRGRP | S_IWGRP | S_IROTH));
 	if (second_file == -1)
 		dprintf(2, "Error: Can't read from file %s\n", argv[2]), exit(99);
 	while (read_first == 1024)
