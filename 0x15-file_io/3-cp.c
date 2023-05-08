@@ -10,15 +10,12 @@ int copy_content(const char *file_from, const char *file_to);
 */
 int main(int argc, char **argv)
 {
-	int res;
-
 	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to \n");
 		exit(97);
 	}
-	res = copy_content(argv[1], argv[2]);
-	printf("-> %i)\n", res);
+	copy_content(argv[1], argv[2]);
 	return (0);
 }
 
