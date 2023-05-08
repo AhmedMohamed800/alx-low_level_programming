@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	second_file = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (second_file == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", argv[2]);
 		exit(99);
 	}
 	while (read_first == 1024)
