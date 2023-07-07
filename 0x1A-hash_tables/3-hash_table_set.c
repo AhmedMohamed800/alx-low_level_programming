@@ -37,10 +37,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				free(new_node);
 				return (1);
 			}
-			if (current_node->next == NULL)
-				current_node->next = new_node;
 			current_node = current_node->next;
 		}
+		new_node->next = ht->array[index];
+		ht->array[index] = new_node;
 	}
 	return (1);
 }
