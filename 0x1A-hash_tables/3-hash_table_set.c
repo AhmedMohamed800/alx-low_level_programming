@@ -35,6 +35,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				strcpy(current_node->value, value);
 				free(new_node);
+				free(new_node->key);
+				free(new_node->value);
 				return (1);
 			}
 			current_node = current_node->next;
