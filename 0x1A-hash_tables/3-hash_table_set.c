@@ -17,7 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		fprintf(stderr, "key can not be an empty string\n");
 		return (0);
 	}
-	index = key_index(key, ht->size);
+	index = key_index((unsigned char *) key, ht->size);
 	current_node = ht->array[index];
 	new_node = create_node(key, value);
 
@@ -33,8 +33,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			if (strcmp(key, current_node->key) == 0)
 			{
-				current_node->key = key;
-				current_node->value = value, free(new_node);
+				strcpy(current_node->key, key);
+				strcpy(current_node->value, value);
+				free(new_node);
 				return (1);
 			}
 			new_node = new_node->next;
