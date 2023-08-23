@@ -24,3 +24,4 @@ def island_perimeter(grid):
         for j in range(len(grid[i])):
             if grid[i][j] == 1:
                 return deep_serach(i, j)
+    return 0
