@@ -6,7 +6,7 @@
  * @size: the size of the array
  * @value: value to search for
  * Return: the index of the value or -1 on failuer
- */ 
+ */
 int linear_search(int *array, size_t size, int value)
 {
 	size_t i = 0;
@@ -19,7 +19,7 @@ int linear_search(int *array, size_t size, int value)
 		{
 			found = 1;
 			break;
-		}	
+		}
 	}
-	return found == 1 ? i : found;
+	return (found == 1 ? i : found);
 }
